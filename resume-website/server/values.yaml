@@ -1,0 +1,42 @@
+# Values for resume-website/server chart
+# By: Benjamin Sykes
+
+# DEPLOYMENT VALUES
+namespace: resume-website-namespace
+labels: 
+  app: resume-site-server
+replicaCount: 1
+
+image:
+  repository: sykeben/resume-server
+  # tag: latest
+restartPolicy: Always
+port: 5000
+
+resources:
+  limits:
+    cpu: 70m
+    memory: 128Mi
+  requests:
+    cpu: 70m
+    memory: 128Mi
+
+# SERVICE VALUES
+service:
+  name: resume-server-cluster-ip
+  labels: 
+    svc: resume-site-server
+  type: ClusterIP
+  ports:
+    name: server-http-port
+    port: 5000
+    targetPort: 5000
+
+# INGRESS
+ingress:
+  name: ingress-resume-server
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+  rules:
+    path: /api
+    servicePort: 5000
