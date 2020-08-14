@@ -3,6 +3,19 @@ entries:
   resume-website-client:
   - apiVersion: v2
     appVersion: 1.2.0
+    created: "2020-08-14T13:24:58.574227746Z"
+    description: A Helm chart for deploying the react client portfolio website to
+      a k8s cluster
+    digest: 128b21d78f2f7469383fee0f4c4ece8a9fcc70120ce3e259aaff10ba306f378a
+    maintainers:
+    - name: Ben Sykes
+    name: resume-website-client
+    type: application
+    urls:
+    - https://github.com/SystemFiles/helm-charts/releases/download/resume-website-client-0.1.1/resume-website-client-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.2.0
     created: "2020-08-14T00:50:15.6527401Z"
     description: A Helm chart for deploying the react client portfolio website to
       a k8s cluster
@@ -15,6 +28,19 @@ entries:
     - https://github.com/SystemFiles/helm-charts/releases/download/resume-website-client-0.1.0/resume-website-client-0.1.0.tgz
     version: 0.1.0
   resume-website-server:
+  - apiVersion: v2
+    appVersion: 1.1.3
+    created: "2020-08-14T13:24:58.685530374Z"
+    description: A Helm chart for deploying the expressJS server for my portfolio
+      website to a k8s cluster
+    digest: eb318bb16c0c347c8bdd7b47b6b4e6738a4ccb8a10554f7d41df3d9bd46f5476
+    maintainers:
+    - name: Ben Sykes
+    name: resume-website-server
+    type: application
+    urls:
+    - https://github.com/SystemFiles/helm-charts/releases/download/resume-website-server-0.1.1/resume-website-server-0.1.1.tgz
+    version: 0.1.1
   - apiVersion: v2
     appVersion: 1.1.3
     created: "2020-08-14T00:50:15.755770253Z"
