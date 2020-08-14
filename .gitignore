@@ -1,3 +1,6 @@
+# Helm
+charts/index.yaml
+
 # MAC OS
 .DS_Store
 
