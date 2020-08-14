@@ -37,6 +37,7 @@ ingress:
   name: ingress-resume-client
   annotations:
     kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
   rules:
     path: /
     servicePort: 3000

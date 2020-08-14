@@ -6,6 +6,10 @@ metadata:
   annotations:
     {{- .Values.ingress.annotations . | nindent 4 }}
 spec:
+  tls:
+  - hosts:
+    - sykesdev.ca
+    secretName: letsencrypt-prod
   rules:
     http:
         paths:
