@@ -4,12 +4,12 @@ metadata:
   name: {{ include "resume-website.fullname" . }}
   namespace: {{ .Values.namespace }}
   labels:
-    {{- .Values.labels . | nindent 4 }}
+    app: {{ .Values.labels.app }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- .Values.labels . | nindent 4 }}
+      app: {{ .Values.labels.app }}
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       labels:
-        {{- .Values.labels . | nindent 4 }}
+        app: {{ .Values.labels.app }}
     spec:
       restartPolicy: {{ .Values.restartPolicy }}
       containers:
@@ -26,4 +26,10 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           ports:
             - containerPort: {{ .Values.port }}
-          resources: {{ .Values.resources | nindent 12 }}
+          resources: 
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}

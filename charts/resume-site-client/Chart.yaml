@@ -3,7 +3,7 @@ name: resume-website-client
 description: A Helm chart for deploying the react client portfolio website to a k8s cluster
 type: application
 version: 0.1.1
-appVersion: 1.2.0
+appVersion: 1.1.7 # Version of docker image
 maintainers:
     - name: Ben Sykes
       github: SystemFiles

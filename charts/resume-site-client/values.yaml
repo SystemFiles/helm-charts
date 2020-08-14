@@ -35,9 +35,12 @@ service:
 # INGRESS
 ingress:
   name: ingress-resume-client
+  tls:
+    host: sykesdev.ca
+    secretName: letsencrypt-prod
   annotations:
-    kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    ingressclass: nginx
+    clusterissuer: letsencrypt-prod
   rules:
     path: /
     servicePort: 3000

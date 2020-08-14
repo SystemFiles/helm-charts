@@ -1,4 +1,4 @@
-# Values for resume-website/server chart
+# Values for resume-website/client chart
 # By: Benjamin Sykes
 
 # DEPLOYMENT VALUES
@@ -16,10 +16,10 @@ port: 5000
 resources:
   limits:
     cpu: 70m
-    memory: 128Mi
+    memory: 100Mi
   requests:
     cpu: 70m
-    memory: 128Mi
+    memory: 100Mi
 
 # SERVICE VALUES
 service:
@@ -35,9 +35,12 @@ service:
 # INGRESS
 ingress:
   name: ingress-resume-server
+  tls:
+    host: sykesdev.ca
+    secretName: letsencrypt-prod
   annotations:
-    kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    ingressclass: nginx
+    clusterissuer: letsencrypt-prod
   rules:
     path: /api
     servicePort: 5000

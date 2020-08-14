@@ -3,10 +3,11 @@ kind: Service
 metadata:
   name: {{ .Values.service.name }}
   labels:
-    {{- .Values.service.labels | nindent 4 }}
+    app: {{ .Values.labels.app }}
 spec:
   type: {{ .Values.service.type }}
-  selector: {{- .Values.labels | nindent 4 }}
+  selector:
+    app: {{ .Values.labels.app }}
   ports:
     - name: {{ .Values.service.ports.name }}
       port: {{ .Values.service.ports.port }}

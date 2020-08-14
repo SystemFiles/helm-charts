@@ -4,14 +4,16 @@ metadata:
   name: {{ .Values.ingress.name }}
   namespace: {{ .Values.namespace }}
   annotations:
-    {{- .Values.ingress.annotations . | nindent 4 }}
+    kubernetes.io/ingress.class: "{{ .Values.ingress.annotations.ingressclass }}"
+    cert-manager.io/cluster-issuer: "{{ .Values.ingress.annotations.clusterissuer }}"
 spec:
   tls:
   - hosts:
-    - sykesdev.ca
-    secretName: letsencrypt-prod
+    - "{{ .Values.ingress.tls.host }}"
+    secretName: {{ .Values.ingress.tls.secretName }}
   rules:
-    http:
+    - host: "{{ .Values.ingress.tls.host }}"
+      http:
         paths:
           - path: {{ .Values.ingress.rules.path }}
             backend:
