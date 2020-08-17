@@ -1,0 +1,12 @@
+apiVersion: v2
+name: wombo-combo
+description: A Helm chart for Wombo-Combo deployment on Kubernetes
+author:
+    name: Ben Sykes
+    github: SystemFiles
+    website: sykesdev.ca
+
+type: application
+version: 0.1.0
+clientVersion: 1.0.1
+serverVersion: 1.0.2

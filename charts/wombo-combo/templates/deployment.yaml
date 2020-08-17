@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "wombo-combo.fullname" . }}-client
+  namespace: {{ include "wombo-combo.namespace" . }}
+  labels:
+    app: {{ include "wombo-combo.fullname" . }}-client
+spec:
+  replicas: {{ .Values.deployment.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "wombo-combo.fullname" . }}-client
+  strategy:
+        rollingUpdate:
+            maxSurge: 1
+            maxUnavailable: 1
+  minReadySeconds: 10
+  template:
+    metadata:
+      labels:
+        app: {{ include "wombo-combo.fullname" . }}-client
+    spec:
+      restartPolicy: {{ .Values.deployment.restartPolicy | default "Always" }}
+      containers:
+        - name: "{{ include "wombo-combo.fullname" . }}-client"
+          imagePullPolicy: {{ .Values.deployment.client.imagePullPolicy | default "Always" }}
+          image: "{{ .Values.deployment.client.image.repository }}:{{ .Values.deployment.client.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.deployment.client.port }}
+          resources:
+            limits:
+              cpu: {{ .Values.deployment.client.resources.limits.cpu }}
+              memory: {{ .Values.deployment.client.resources.limits.memory }}
+            requests:
+              cpu: {{ .Values.deployment.client.resources.requests.cpu }}
+              memory: {{ .Values.deployment.client.resources.requests.memory }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "wombo-combo.fullname" . }}-server
+  namespace: {{ include "wombo-combo.namespace" . }}
+  labels:
+    app: {{ include "wombo-combo.fullname" . }}-server
+spec:
+  replicas: {{ .Values.deployment.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "wombo-combo.fullname" . }}-server
+  strategy:
+        rollingUpdate:
+            maxSurge: 1
+            maxUnavailable: 1
+  minReadySeconds: 10
+  template:
+    metadata:
+      labels:
+        app: {{ include "wombo-combo.fullname" . }}-server
+    spec:
+      restartPolicy: {{ .Values.deployment.restartPolicy | default "Always" }}
+      volumes:
+        - name: server-files-persistent-storage
+          persistentVolumeClaim:
+            claimName: {{ .Values.pvc.name }}
+          name: wombo-storage
+      containers:
+        - name: "{{ include "wombo-combo.fullname" . }}-server"
+          imagePullPolicy: {{ .Values.deployment.server.imagePullPolicy | default "Always" }}
+          image: "{{ .Values.deployment.server.image.repository }}:{{ .Values.deployment.server.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.deployment.server.port }}
+          volumeMounts:
+            - name: {{ .Values.pvc.name }}
+              mountPath: /data
+          resources:
+            limits:
+              cpu: {{ .Values.deployment.server.resources.limits.cpu }}
+              memory: {{ .Values.deployment.server.resources.limits.memory }}
+            requests:
+              cpu: {{ .Values.deployment.server.resources.requests.cpu }}
+              memory: {{ .Values.deployment.server.resources.requests.memory }}

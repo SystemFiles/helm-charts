@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: {{ .Values.service.client.name }}
+    namespace: {{ include "wombo-combo.namespace" . }}
+    labels:
+        app: {{ include "wombo-combo.fullname" . }}-client
+spec:
+    type: ClusterIP
+    selector:
+        app: {{ include "wombo-combo.fullname" . }}-client
+    ports:
+        - name: {{ .Values.service.client.ports.name }}
+          port: {{ .Values.service.client.ports.port }}
+          targetPort: {{ .Values.service.client.ports.targetPort }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: {{ .Values.service.server.name }}
+    namespace: {{ include "wombo-combo.namespace" . }}
+    labels:
+        app: {{ include "wombo-combo.fullname" . }}-server
+spec:
+    type: ClusterIP
+    selector:
+        app: {{ include "wombo-combo.fullname" . }}-server
+    ports:
+        - name: {{ .Values.service.server.ports.name }}
+          port: {{ .Values.service.server.ports.port }}
+          targetPort: {{ .Values.service.server.ports.targetPort }}

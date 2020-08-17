@@ -1,0 +1,72 @@
+# Default values for Wombo-Combo
+# By: Benjamin Sykes (SystemFiles)
+
+# Project-Scoped vars
+namespace: wombo-combo
+labels:
+    app: wombo-combo
+
+# DEPLOYMENT VARS
+deployment:
+    replicaCount: 1
+    restartPolicy: Always
+    client:
+        imagePullPolicy: IfNotPresent
+        image:
+            repository: sykeben/wombo-combo-client
+            tag: 1.0.1
+        port: 3000
+        resources:
+            limits:
+                cpu: 50m
+                memory: 128Mi
+            requests:
+                cpu: 50m
+                memory: 128Mi
+    server:
+        imagePullPolicy: IfNotPresent
+        image:
+            repository: sykeben/wombo-combo-server
+            tag: 1.0.2
+        port: 5000
+        resources:
+            limits:
+                cpu: 500m
+                memory: 256Mi
+            requests:
+                cpu: 50m
+                memory: 128Mi
+
+# SERVICE VARS
+service:
+    client:
+        name: wombo-client-cluster-ip
+        ports:
+            name: client-http-port
+            port: 80
+            targetPort: 3000
+    server:
+        name: wombo-server-cluster-ip
+        ports:
+            name: server-api-port
+            port: 5000
+            targetPort: 5000
+
+# INGRESS VARS
+ingress:
+    host: wc.sykesdev.ca
+    annotations:
+        ingressClass: "nginx"
+        clusterIssuer: letsencrypt-prod
+    tls:
+        secretName: letsencrypt-prod
+    rules:
+        clientPath: /
+        serverPath: /api
+
+# PVC VARS
+pvc:
+    name: wombo-storage
+    size: 20Gi
+    storageClass: do-block-storage
+

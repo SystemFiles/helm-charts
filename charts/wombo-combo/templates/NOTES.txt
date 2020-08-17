@@ -1,0 +1,5 @@
+DEPLOYMENT OF WOMBO-COMBO WAS SUCCESSFUL! :) 
+
+You can find the app hosted at localhost:3000 inside the cluster and at {{ .Values.ingress.host }}
+
+By Default the app is available on: yourdomain/ and API at yourdomain/api/
