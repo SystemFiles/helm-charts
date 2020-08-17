@@ -104,4 +104,14 @@ entries:
     urls:
     - https://github.com/SystemFiles/helm-charts/releases/download/resume-website-server-0.1.0/resume-website-server-0.1.0.tgz
     version: 0.1.0
+  wombo-combo:
+  - apiVersion: v2
+    created: "2020-08-17T20:01:22.494381952Z"
+    description: A Helm chart for Wombo-Combo deployment on Kubernetes
+    digest: c61e84d739531cdc5b8e52e21d88633b2eb6166c8878940dcf1a210813560d7c
+    name: wombo-combo
+    type: application
+    urls:
+    - https://github.com/SystemFiles/helm-charts/releases/download/wombo-combo-0.1.0/wombo-combo-0.1.0.tgz
+    version: 0.1.0
 generated: "2020-08-14T00:50:15.53750044Z"
