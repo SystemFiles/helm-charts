@@ -7,6 +7,4 @@ author:
     website: sykesdev.ca
 
 type: application
-version: 0.1.1
-clientVersion: 1.0.1
-serverVersion: 1.0.2
+version: 0.1.2
