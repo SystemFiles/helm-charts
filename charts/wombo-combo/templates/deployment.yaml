@@ -62,7 +62,7 @@ spec:
         - name: server-files-persistent-storage
           persistentVolumeClaim:
             claimName: {{ .Values.pvc.name }}
-          name: wombo-storage
+          name: {{ .Values.pvc.name }}
       containers:
         - name: "{{ include "wombo-combo.fullname" . }}-server"
           imagePullPolicy: {{ .Values.deployment.server.imagePullPolicy | default "Always" }}
