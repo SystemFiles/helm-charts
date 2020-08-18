@@ -67,6 +67,6 @@ ingress:
 # PVC VARS
 pvc:
     name: wombo-storage
-    size: 20Gi
+    size: 5Gi
     storageClass: do-block-storage
 
