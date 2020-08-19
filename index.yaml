@@ -106,6 +106,15 @@ entries:
     version: 0.1.0
   wombo-combo:
   - apiVersion: v2
+    created: "2020-08-19T19:40:56.588394801Z"
+    description: A Helm chart for Wombo-Combo deployment on Kubernetes
+    digest: 31db85d35635e03bbc0b23c0eaad24742e109c8b9a1bd4a1713e99e97cd26e09
+    name: wombo-combo
+    type: application
+    urls:
+    - https://github.com/SystemFiles/helm-charts/releases/download/wombo-combo-0.1.3/wombo-combo-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
     created: "2020-08-18T23:27:19.263533107Z"
     description: A Helm chart for Wombo-Combo deployment on Kubernetes
     digest: 26e2a5e29d324133e82b78e0007690d659b29eba2139c786b1ee47285cb3d17f
