@@ -3,14 +3,14 @@ entries:
   gitbuilder-landing:
   - apiVersion: v2
     appVersion: stable
-    created: "2020-08-25T18:38:14.892119308Z"
+    created: "2020-08-25T19:12:10.929245766Z"
     description: A Helm chart for the Gitbuilder landing page website
-    digest: a2894c58d6a4864b5e6ad74d670b7cdce80b47b7cb928df244405f1e91e19201
+    digest: 70a75227675ab472ee6a8c1d29628fc0c19bf8e68462a3fcb36764561df21190
     name: gitbuilder-landing
     type: application
     urls:
-    - https://github.com/SystemFiles/helm-charts/releases/download/gitbuilder-landing-0.1.0/gitbuilder-landing-0.1.0.tgz
-    version: 0.1.0
+    - https://github.com/SystemFiles/helm-charts/releases/download/gitbuilder-landing-0.1.1/gitbuilder-landing-0.1.1.tgz
+    version: 0.1.1
   resume-website-client:
   - apiVersion: v2
     appVersion: 1.2.0
