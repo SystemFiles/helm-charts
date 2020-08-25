@@ -1,0 +1,44 @@
+# Values for gitbuilder-landing chart
+# By: Benjamin Sykes
+
+# DEPLOYMENT VALUES
+labels: 
+  app: gitbuilder-landing
+replicaCount: 1
+
+image:
+  repository: sykeben/gitbuilder-landing
+  pullPolicy: Always
+  tag: 0.1.2
+restartPolicy: Always
+port: 3000
+
+resources:
+  limits:
+    cpu: 60m
+    memory: 100Mi
+  requests:
+    cpu: 10m
+    memory: 30Mi
+
+# SERVICE VALUES
+service:
+  name: gitbuilder-landing-cluster-ip
+  type: ClusterIP
+  ports:
+    name: http-port
+    port: 80
+    targetPort: 3000
+
+# INGRESS
+ingress:
+  name: gitbuilder-landing-ingress
+  tls:
+    host: gb.sykesdev.ca
+    secretName: letsencrypt-prod
+  annotations:
+    ingressclass: "nginx"
+    clusterissuer: letsencrypt-prod
+  rules:
+    path: /
+    servicePort: 3000
