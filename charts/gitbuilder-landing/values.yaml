@@ -9,7 +9,7 @@ replicaCount: 1
 image:
   repository: sykeben/gitbuilder-landing
   pullPolicy: Always
-  tag: 0.1.2
+  # tag: 0.1.2
 restartPolicy: Always
 port: 3000
 
