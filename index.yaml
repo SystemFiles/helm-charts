@@ -3,14 +3,26 @@ entries:
   gitbuilder-landing:
   - apiVersion: v2
     appVersion: stable
-    created: "2020-08-25T19:12:10.929245766Z"
+    created: "2020-09-02T15:01:09.483866587Z"
     description: A Helm chart for the Gitbuilder landing page website
-    digest: 70a75227675ab472ee6a8c1d29628fc0c19bf8e68462a3fcb36764561df21190
+    digest: 324dc1eae9400e3b4fecebc288c0fe329d847245e0112f936ffd7023600ba496
     name: gitbuilder-landing
     type: application
     urls:
-    - https://github.com/SystemFiles/helm-charts/releases/download/gitbuilder-landing-0.1.1/gitbuilder-landing-0.1.1.tgz
-    version: 0.1.1
+    - https://github.com/SystemFiles/helm-charts/releases/download/gitbuilder-landing-0.1.2/gitbuilder-landing-0.1.2.tgz
+    version: 0.1.2
+  gitbuilder-templates-api:
+  - apiVersion: v2
+    appVersion: stable
+    created: "2020-09-02T15:01:09.703282293Z"
+    description: Deploys the templates API which is required by the gitbuilder.io
+      CLI application
+    digest: 142930fb168b905c01b6943546f1d0651b57af110f7a54d3aac87b77eec04f31
+    name: gitbuilder-templates-api
+    type: application
+    urls:
+    - https://github.com/SystemFiles/helm-charts/releases/download/gitbuilder-templates-api-0.1.0-alpha/gitbuilder-templates-api-0.1.0-alpha.tgz
+    version: 0.1.0-alpha
   resume-website-client:
   - apiVersion: v2
     appVersion: 1.2.0
@@ -116,6 +128,15 @@ entries:
     - https://github.com/SystemFiles/helm-charts/releases/download/resume-website-server-0.1.0/resume-website-server-0.1.0.tgz
     version: 0.1.0
   wombo-combo:
+  - apiVersion: v2
+    created: "2020-09-02T15:01:09.931383806Z"
+    description: A Helm chart for Wombo-Combo deployment on Kubernetes
+    digest: 31b19bcf97b2d1b5e1a475d4ff63f43cf672698efe7e89bb924c53f4d0d3ecd8
+    name: wombo-combo
+    type: application
+    urls:
+    - https://github.com/SystemFiles/helm-charts/releases/download/wombo-combo-0.1.4/wombo-combo-0.1.4.tgz
+    version: 0.1.4
   - apiVersion: v2
     created: "2020-08-19T19:40:56.588394801Z"
     description: A Helm chart for Wombo-Combo deployment on Kubernetes
