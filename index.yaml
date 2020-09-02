@@ -14,6 +14,17 @@ entries:
   gitbuilder-templates-api:
   - apiVersion: v2
     appVersion: stable
+    created: "2020-09-02T19:07:56.99534945Z"
+    description: Deploys the templates API which is required by the gitbuilder.io
+      CLI application
+    digest: 0f6dfee30254a82afae5a81f6dd65c3e510c3833463fb4cfdfdee46ce802531b
+    name: gitbuilder-templates-api
+    type: application
+    urls:
+    - https://github.com/SystemFiles/helm-charts/releases/download/gitbuilder-templates-api-0.1.0/gitbuilder-templates-api-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v2
+    appVersion: stable
     created: "2020-09-02T15:01:09.703282293Z"
     description: Deploys the templates API which is required by the gitbuilder.io
       CLI application
