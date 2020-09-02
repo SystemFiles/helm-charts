@@ -1,0 +1,50 @@
+# Values for gitbuilder-templates-api chart
+# By: Benjamin Sykes
+
+# DEPLOYMENT VALUES
+labels: 
+  app: gitbuilder-templates-api
+replicaCount: 1
+
+image:
+  repository: sykeben/gitbuilder-templates-api
+  pullPolicy: Always
+  # tag: latest
+restartPolicy: Always
+port: 5000
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 200Mi
+  requests:
+    cpu: 10m
+    memory: 50Mi
+
+# SERVICE VALUES
+service:
+  name: gitbuilder-templates-api-cluster-ip
+  type: ClusterIP
+  ports:
+    name: http-port
+    port: 5000
+    targetPort: 5000
+
+# PVC
+pvc:
+  name: gitbuilder-templates-storage
+  size: 2Gi
+  storageClass: do-block-storage
+
+# INGRESS
+ingress:
+  name: gitbuilder-templates-api-ingress
+  tls:
+    host: gb.sykesdev.ca
+    secretName: letsencrypt-prod
+  annotations:
+    ingressclass: "nginx"
+    clusterissuer: letsencrypt-prod
+  rules:
+    path: /api
+    servicePort: 5000

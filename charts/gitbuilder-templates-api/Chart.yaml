@@ -1,0 +1,6 @@
+apiVersion: v2
+name: gitbuilder-templates-api
+description: Deploys the templates API which is required by the gitbuilder.io CLI application
+type: application
+version: 0.1.0-alpha
+appVersion: stable

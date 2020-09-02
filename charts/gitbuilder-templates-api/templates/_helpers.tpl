@@ -1,8 +1,8 @@
-{{- define "gitbuilder-landing.name" -}}
+{{- define "gitbuilder-templates-api.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
-{{- define "gitbuilder-landing.fullname" -}}
+{{- define "gitbuilder-templates-api.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -18,13 +18,13 @@
 {{/*
 Define namespace for this chart
 */}}
-{{- define "gitbuilder-landing.namespace" -}}
+{{- define "gitbuilder-templates-api.namespace" -}}
 {{- printf "gitbuilder" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "gitbuilder-landing.chart" -}}
+{{- define "gitbuilder-templates-api.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}

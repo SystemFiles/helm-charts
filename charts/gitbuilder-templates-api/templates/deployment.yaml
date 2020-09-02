@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "gitbuilder-templates-api.fullname" . }}
+  namespace: {{ include "gitbuilder-templates-api.namespace" . }}
+  labels:
+    app: {{ .Values.labels.app }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.labels.app }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 10
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.labels.app }}
+    spec:
+      restartPolicy: {{ .Values.restartPolicy }}
+      volumes:
+        - name: {{ .Values.labels.app }}-persistent-storage
+          persistentVolumeClaim:
+            claimName: {{ .Values.pvc.name }}
+          name: {{ .Values.pvc.name }}
+      containers:
+        - name: {{ include "gitbuilder-templates-api.fullname" . }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | default "Always" }}
+          ports:
+            - containerPort: {{ .Values.port }}
+          volumeMounts:
+            - name: {{ .Values.pvc.name }}
+              mountPath: /data
+          resources: 
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
