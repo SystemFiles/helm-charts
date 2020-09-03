@@ -89,6 +89,18 @@ entries:
     version: 0.1.0
   resume-website-server:
   - apiVersion: v2
+    appVersion: 1.1.4
+    created: "2020-09-03T19:47:52.400217225Z"
+    description: A Helm chart for deploying the server for sykesdev.ca to k8s cluster
+    digest: dfe11b6fb273376dadd9263defb7b2f61b00c30daf8eb40b11164cc058ebfd67
+    maintainers:
+    - name: Ben Sykes
+    name: resume-website-server
+    type: application
+    urls:
+    - https://github.com/SystemFiles/helm-charts/releases/download/resume-website-server-0.1.4/resume-website-server-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
     appVersion: 1.1.3
     created: "2020-08-14T17:52:19.894353152Z"
     description: A Helm chart for deploying the server for sykesdev.ca to k8s cluster
