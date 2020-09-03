@@ -36,6 +36,19 @@ entries:
     version: 0.1.0-alpha
   resume-website-client:
   - apiVersion: v2
+    appVersion: 1.2.1
+    created: "2020-09-03T20:28:47.2498726Z"
+    description: A Helm chart for deploying the react client portfolio website to
+      a k8s cluster
+    digest: 3d95c8eba7d419eef5338f4118246c148430ac5b471d196210deb8fc0b395f89
+    maintainers:
+    - name: Ben Sykes
+    name: resume-website-client
+    type: application
+    urls:
+    - https://github.com/SystemFiles/helm-charts/releases/download/resume-website-client-0.1.4/resume-website-client-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
     appVersion: 1.2.0
     created: "2020-08-14T17:52:19.73279632Z"
     description: A Helm chart for deploying the react client portfolio website to
