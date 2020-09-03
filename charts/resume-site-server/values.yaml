@@ -10,6 +10,11 @@ replicaCount: 1
 image:
   repository: sykeben/resume-server
   # tag: latest
+  env:
+    email:
+      to: ben@sykesdev.ca
+      from: ben@sykesdev.ca
+    secretName: resume-website-secret
 restartPolicy: Always
 port: 5000
 
@@ -18,8 +23,8 @@ resources:
     cpu: 70m
     memory: 100Mi
   requests:
-    cpu: 70m
-    memory: 100Mi
+    cpu: 20m
+    memory: 25Mi
 
 # SERVICE VALUES
 service:

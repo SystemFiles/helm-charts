@@ -24,6 +24,26 @@ spec:
       containers:
         - name: {{ include "resume-website.fullname" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          env:
+            - name: EMAIL_TO
+              value: "{{ .Values.image.env.email.to }}"
+            - name: EMAIL_FROM
+              value: "{{ .Values.image.env.email.from }}"
+            - name: CONTENTFUL_BLOG_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.image.env.secretName }}
+                  key: CONTENTFUL_BLOG_TOKEN
+            - name: CONTENTFUL_PROJECT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.image.env.secretName }}
+                  key: CONTENTFUL_PROJECT_TOKEN
+            - name: SG_API_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.image.env.secretName }}
+                  key: SG_API_TOKEN
           ports:
             - containerPort: {{ .Values.port }}
           resources: 
